@@ -1,0 +1,7 @@
+node_modules/
+.sourcemaps/
+.firebase/
+.vscode/
+dist/
+www/
+*.log
