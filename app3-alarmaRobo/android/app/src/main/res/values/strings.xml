@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">app3-alarmaRobo</string>
+    <string name="app_name">CatoSegur</string>
     <string name="title_activity_main">app3-alarmaRobo</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="package_name">io.ionic.catosegur</string>
+    <string name="custom_url_scheme">io.ionic.catosegur</string>
 </resources>

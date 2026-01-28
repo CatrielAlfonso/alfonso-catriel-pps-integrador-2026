@@ -1,36 +1,77 @@
-ion-content, ion-item, ion-button{
-    --background: none;
-}
-
-.logos {
-    width: 400px;
-    height: 400px;
-    margin-top: 65%;
-}
-
-.labels {
-    padding: 20px;
-    font-size: 28px;
-}
-
-.splashes {
-    align-items: center;
+#primer-splash {
+    background: radial-gradient(circle, #3f1701 0%, #000000 100%);
+    position: relative;
+    /* Aseguramos que ocupe todo el alto y ancho */
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center; /* Centra verticalmente sin necesidad de márgenes locos */
+    overflow: hidden;
 }
 
-@-webkit-keyframes flicker-in-1{0%{opacity:0}10%{opacity:0}10.1%{opacity:1}10.2%{opacity:0}20%{opacity:0}20.1%{opacity:1}20.6%{opacity:0}30%{opacity:0}30.1%{opacity:1}30.5%{opacity:1}30.6%{opacity:0}45%{opacity:0}45.1%{opacity:1}50%{opacity:1}55%{opacity:1}55.1%{opacity:0}57%{opacity:0}57.1%{opacity:1}60%{opacity:1}60.1%{opacity:0}65%{opacity:0}65.1%{opacity:1}75%{opacity:1}75.1%{opacity:0}77%{opacity:0}77.1%{opacity:1}85%{opacity:1}85.1%{opacity:0}86%{opacity:0}86.1%{opacity:1}100%{opacity:1}}@keyframes flicker-in-1{0%{opacity:0}10%{opacity:0}10.1%{opacity:1}10.2%{opacity:0}20%{opacity:0}20.1%{opacity:1}20.6%{opacity:0}30%{opacity:0}30.1%{opacity:1}30.5%{opacity:1}30.6%{opacity:0}45%{opacity:0}45.1%{opacity:1}50%{opacity:1}55%{opacity:1}55.1%{opacity:0}57%{opacity:0}57.1%{opacity:1}60%{opacity:1}60.1%{opacity:0}65%{opacity:0}65.1%{opacity:1}75%{opacity:1}75.1%{opacity:0}77%{opacity:0}77.1%{opacity:1}85%{opacity:1}85.1%{opacity:0}86%{opacity:0}86.1%{opacity:1}100%{opacity:1}}
-@-webkit-keyframes slide-in-blurred-top{0%{-webkit-transform:translateY(-1000px) scaleY(2.5) scaleX(.2);transform:translateY(-1000px) scaleY(2.5) scaleX(.2);-webkit-transform-origin:50% 0;transform-origin:50% 0;-webkit-filter:blur(40px);filter:blur(40px);opacity:0}100%{-webkit-transform:translateY(0) scaleY(1) scaleX(1);transform:translateY(0) scaleY(1) scaleX(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes slide-in-blurred-top{0%{-webkit-transform:translateY(-1000px) scaleY(2.5) scaleX(.2);transform:translateY(-1000px) scaleY(2.5) scaleX(.2);-webkit-transform-origin:50% 0;transform-origin:50% 0;-webkit-filter:blur(40px);filter:blur(40px);opacity:0}100%{-webkit-transform:translateY(0) scaleY(1) scaleX(1);transform:translateY(0) scaleY(1) scaleX(1);-webkit-transform-origin:50% 50%;transform-origin:50% 50%;-webkit-filter:blur(0);filter:blur(0);opacity:1}}
-#primer-splash{
-    background-color: rgb(41, 41, 41);
-    img {
-        -webkit-animation:flicker-in-1 2s linear both;animation:flicker-in-1 3s linear both;
-    }
-    .labels {
-        color: #fff;
-        -webkit-animation:slide-in-blurred-top .8s cubic-bezier(.23,1.000,.32,1.000) 2.5s both;animation:slide-in-blurred-top .8s cubic-bezier(.23,1.000,.32,1.000) 2.5s both;
-        font-family: 'Quicksand', sans-serif;
-    }
+.overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: 
+        linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.logos {
+    width: 70%; /* Usamos ancho relativo al dispositivo */
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 30px; /* Espacio entre logo y texto */
+    filter: drop-shadow(0 0 15px rgba(255, 153, 0, 0.2));
+    animation: flicker-in-1 2s linear both, pulse-red 3s infinite 2s;
+    z-index: 5;
+}
+
+.labels {
+    font-size: 40px; /* Ajustado para que no sea gigante en móviles chicos */
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-align: center;
+    color: #e0e0e0;
+    font-family: 'Quicksand', sans-serif;
+    animation: slide-in-blurred-top .8s cubic-bezier(.23,1.000,.32,1.000) 2s both, glitch 4s infinite 4s;
+    z-index: 5;
+}
+
+.sub-label {
+    font-size: 26px;
+    color: #d6860e;
+    opacity: 0.8;
+}
+
+/* --- TUS ANIMACIONES (Mantenlas igual) --- */
+@keyframes pulse-red {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(216, 148, 2, 0.4)); }
+    50% { filter: drop-shadow(0 0 25px rgba(255, 136, 0, 0.7)); }
+}
+
+@keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    2% { transform: translate(-2px, 2px); color: #ff0000; }
+    4% { transform: translate(2px, -2px); color: #00ffff; }
+    6% { transform: translate(0); }
+}
+
+@keyframes flicker-in-1 {
+    0% { opacity: 0; }
+    10% { opacity: 0.1; }
+    10.2% { opacity: 0; }
+    20% { opacity: 0.5; }
+    25% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slide-in-blurred-top {
+    0% { transform: translateY(-50px); filter: blur(20px); opacity: 0; }
+    100% { transform: translateY(0); filter: blur(0); opacity: 1; }
 }
