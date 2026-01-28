@@ -1,0 +1,111 @@
+.chat-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-box {
+    flex-grow: 1;
+    --background: url("../../../assets/imgs/bg-a.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto; /* Permite que el contenido sea desplazable */
+}
+
+.chat-header {
+    background-color: #25242e;
+    color: white;
+    padding: 10px;
+    // display: flex;
+    justify-content: space-between;
+    text-align: center;
+    // animation: flicker 1.5s infinite alternate;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.chat-msj {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%; 
+    padding: 1rem;
+    overflow-y: auto; /* Para que los mensajes sean desplazables */
+}
+
+.mensajes {
+    align-self: flex-start;
+    border-radius: 1rem;
+    padding: 10px;
+    max-width: 60%;
+    background-color: rgba(0, 110, 255, 0.404);
+    backdrop-filter: blur(10px);
+    word-wrap: break-word; /* Permite que las palabras largas se dividan en varias líneas */
+}
+
+.mensajes-usuario-logueado {
+    align-self: flex-end; 
+    border-radius: 1rem;
+    padding: 10px;
+    max-width: 60%; 
+    background-color: rgba(72, 255, 0, 0.404);
+    backdrop-filter: blur(10px);
+    word-wrap: break-word;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    background-color: rgba(37, 36, 46, 0.9); /* Hacer el fondo un poco translúcido */
+}
+
+.chat-input input {
+    flex-grow: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #fff;
+}
+ion-item{width: 100%;}
+
+.chat-input button {
+    background-color: #cc00ff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.contenedor-spinner
+{
+    width: 90%;
+    height: 100%;
+    ion-spinner {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+    }
+    .img-spinner { 
+        position: absolute;
+        top: 50%;  /* position the top  edge of the element at the middle of the parent */
+        left: 50%; /* position the left edge of the element at the middle of the parent */
+        transform: translate(-50%, -50%);
+        width: 200px; 
+        height: 200px; 
+    }
+}

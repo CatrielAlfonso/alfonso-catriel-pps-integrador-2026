@@ -1,0 +1,48 @@
+<ion-content>
+  <ion-row *ngIf="spinnerMostrandose" class="contenedor-spinner">
+    <ion-col>
+      <ion-spinner name="circular" class="spinner" color="light"></ion-spinner>
+      <img class="img-spinner" src="../../../assets/imgs/icono-Totissenger.png">
+    </ion-col>
+  </ion-row>
+
+  <div class="chat-container" *ngIf="!spinnerMostrandose">
+    <ion-header class="chat-header">
+      <ion-toolbar>
+        <ion-grid>
+          <ion-row>
+            <ion-button routerLink="/home"><ion-icon name="return-up-back-outline"></ion-icon></ion-button>
+            <ion-title class="fuente-titulo">Bienvenido a PPS4-A!</ion-title>
+          </ion-row>
+        </ion-grid>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="chat-box">
+      <div class="chat-msj">
+        <div *ngFor="let mensajeObtenido of observableMensajes | async"
+          [ngClass]="{
+            'mensajes-usuario-logueado': mensajeObtenido.usuario === this.usuarioLogueado,
+            'mensajes': mensajeObtenido.usuario !== this.usuarioLogueado
+          }">
+          <label class="fuente-titulo" style="color: cyan; font-size: 20px;"
+            *ngIf="mensajeObtenido.usuario !== this.usuarioLogueado">
+            {{ mensajeObtenido.usuario }}
+          </label>
+          <br *ngIf="mensajeObtenido.usuario !== this.usuarioLogueado">
+          <strong>{{ mensajeObtenido.mensaje }}</strong>
+          <br>
+          ({{mensajeObtenido.fechaMensajeFormateada}})
+        </div>
+      </div>
+    </ion-content>
+
+    <!-- Entrada de mensajes -->
+    <ion-footer class="chat-input">
+      <ion-item>
+        <ion-input [(ngModel)]="mensaje" placeholder="Escribe un mensaje..."></ion-input>
+        <ion-button expand="full" (click)="MandarMensaje()" [disabled]="this.mensaje.length > 21 || this.mensaje.length < 1">Enviar</ion-button>
+      </ion-item>
+    </ion-footer>
+  </div>
+</ion-content>

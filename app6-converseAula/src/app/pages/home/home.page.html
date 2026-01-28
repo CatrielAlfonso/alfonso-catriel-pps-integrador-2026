@@ -1,0 +1,29 @@
+<ion-content [fullscreen]="true" class="body">
+  <ion-card class="card-cosas">
+    <ion-grid id="main-grid">
+      <ion-row class="row-main-grid half-screen a">
+        <ion-card (click)="this.router.navigateByUrl('chat-a')" class="full-card">
+          <img src="../../../assets/imgs/aula-a.jpg" class="imagenes"> 
+          <ion-card-header class="h-a">
+            <ion-card-title>IR AL FORO DE MENSAJES DE PPS-4A</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-row>
+
+      <ion-row class="row-main-grid half-screen">
+        <ion-card (click)="this.router.navigateByUrl('chat-b')" class="full-card">
+          <img src="../../../assets/imgs/aula-b.jpg" class="imagenes"> 
+          <ion-card-header class="h-b">
+            <ion-card-title>IR AL FORO DE MENSAJES DE PPS-4B</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+</ion-content>
+
+<ion-fab class="fab-volver" vertical="top" horizontal="center" slot="fixed" (click)="this.authService.cerrarSesion()">
+  <ion-fab-button color="danger">
+    <ion-icon name="exit-outline"></ion-icon>  
+  </ion-fab-button>
+</ion-fab>

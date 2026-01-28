@@ -1,0 +1,7 @@
+{
+  "name": "app6-converseAula",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
