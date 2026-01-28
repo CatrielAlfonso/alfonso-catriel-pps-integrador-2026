@@ -1,0 +1,49 @@
+<ion-content class="mp-login-content">
+  <div class="background-overlay">
+    <div class="circle c1"></div>
+    <div class="circle c2"></div>
+    <div class="circle c3"></div>
+  </div>
+
+  <div class="login-wrapper">
+    <div class="logo-container animate__animated animate__zoomIn">
+      <div class="logo-glow"></div>
+      <img src="assets/icon-only.png" alt="Logo" class="logo-img">
+    </div>
+
+    <div class="header-section animate__animated animate__fadeIn">
+      <h1 class="titulo-login">{{titulo}}</h1>
+      <p class="subtitulo">Tu billetera digital. Segura y rápida.</p>
+    </div>
+
+    <div class="form-card animate__animated animate__fadeInUp">
+      <ion-item lines="none" class="mp-input-item">
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-input type="email" [(ngModel)]="user.email" placeholder="Correo electrónico"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none" class="mp-input-item">
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input type="password" [(ngModel)]="user.password" placeholder="Contraseña"></ion-input>
+      </ion-item>
+
+      <p id="msjError"></p>
+
+      <ion-button expand="block" class="btn-login-glow" (click)="onLogin()">
+        INGRESAR
+      </ion-button>
+    </div>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="light">
+        <ion-icon name="finger-print-outline" color="primary"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button (click)="login_Admin()"><ion-icon name="shield-checkmark"></ion-icon></ion-fab-button>
+        <ion-fab-button (click)="login_Invitado()"><ion-icon name="people"></ion-icon></ion-fab-button>
+        <ion-fab-button (click)="login_Usuario()"><ion-icon name="person"></ion-icon></ion-fab-button>
+        <ion-fab-button (click)="login_Tester()"><ion-icon name="bug"></ion-icon></ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+  </div>
+</ion-content>

@@ -1,0 +1,72 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" class="mp-toolbar">
+    <ion-title>Billetera</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="Logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="mp-content">
+  <div class="balance-container">
+    <p class="balance-label">Tu dinero disponible</p>
+    <div class="balance-row" (click)="esconderCreditos()">
+      <h1 class="balance-amount">
+        {{ esconder ? '$' + unUsuario.credito : '$ ****' }}
+      </h1>
+      <ion-icon [name]="esconder ? 'eye-outline' : 'eye-off-outline'"></ion-icon>
+    </div>
+  </div>
+
+  <div class="main-actions">
+    <ion-button expand="block" class="btn-scan" (click)="scanBRcode()">
+      <ion-icon slot="start" name="qr-code-outline"></ion-icon>
+      ESCANEAR QR
+    </ion-button>
+  </div>
+
+  <div class="confirm-card" *ngIf="scannedBarCode && monto > 0">
+    <ion-item lines="none">
+      <ion-label>
+        <p>Monto detectado</p>
+        <h2>${{ monto }}</h2>
+      </ion-label>
+      <ion-button slot="end" color="success" (click)="CargarCredito()">
+        CARGAR
+      </ion-button>
+    </ion-item>
+  </div>
+
+  <div class="activity-section">
+    <h3 class="section-title">Tu actividad</h3>
+    
+    <ion-list lines="full" *ngIf="esconder; else hiddenActivity">
+      <ng-container *ngIf="unUsuario.credito > 0; else noData">
+        <ion-item *ngIf="unUsuario.cargo10 > 0">
+          <ion-icon name="arrow-up-circle" color="success" slot="start"></ion-icon>
+          <ion-label>
+            <h3>Carga de crédito</h3>
+            <p>Recarga de $10 (x{{unUsuario.cargo10}})</p>
+          </ion-label>
+        </ion-item>
+        </ng-container>
+      
+      <ng-template #noData>
+        <div class="empty-state">Aún no hay recargas realizadas</div>
+      </ng-template>
+    </ion-list>
+
+    <ng-template #hiddenActivity>
+      <div class="empty-state">Contenido oculto por seguridad</div>
+    </ng-template>
+  </div>
+
+  <div class="footer-actions">
+    
+    <ion-button fill="solid" color="tertiary" expand="block" (click)="eliminarCreditos()">
+      VACIAR BILLETERA
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "credicat",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

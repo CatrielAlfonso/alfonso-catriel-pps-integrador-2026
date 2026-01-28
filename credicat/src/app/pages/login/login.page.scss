@@ -1,0 +1,117 @@
+$mp-blue: #009ee3;
+$mp-dark: #005c84;
+
+.mp-login-content {
+  --background: transparent;
+  background: linear-gradient(-45deg, #009ee3, #005c84, #223941, #004a6b);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+/* CÍRCULOS ANIMADOS DE FONDO */
+.background-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+
+  .circle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: floatCircles 20s infinite linear;
+  }
+
+  .c1 { width: 300px; height: 300px; top: -10%; left: -10%; }
+  .c2 { width: 200px; height: 200px; bottom: 10%; right: -5%; animation-duration: 15s; }
+  .c3 { width: 150px; height: 150px; top: 40%; left: 50%; animation-duration: 25s; }
+}
+
+.login-wrapper {
+  position: relative;
+  z-index: 1;
+  padding: 40px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+}
+
+/* LOGO CON BRILLO */
+.logo-container {
+  position: relative;
+  margin-bottom: 20px;
+  
+  .logo-img {
+    height: 120px;
+    filter: drop-shadow(0 0 20px rgba(255,255,255,0.4));
+  }
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+
+  .titulo-login {
+    font-size: 2.4rem;
+    font-weight: 800;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    margin: 0;
+  }
+  .subtitulo { opacity: 0.9; font-size: 1rem; }
+}
+
+/* TARJETA ESTILO VIDRIO (Glassmorphism) */
+.form-card {
+  background: rgba(59, 59, 59, 0.95);
+  padding: 30px 20px;
+  border-radius: 20px;
+  width: 100%;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+
+  .mp-input-item {
+    --background: #242424;
+    --border-radius: 12px;
+    margin-bottom: 15px;
+    --padding-start: 15px;
+    
+    ion-icon { color: $mp-blue; font-size: 1.4rem; }
+    ion-input { font-weight: 500; }
+  }
+}
+
+.btn-login-glow {
+  --background: #{$mp-blue};
+  --height: 60px;
+  --border-radius: 12px;
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  box-shadow: 0 8px 20px rgba(0, 158, 227, 0.4);
+  transition: transform 0.2s;
+
+  &:active { transform: scale(0.98); }
+}
+
+/* ANIMACIONES PERSONALIZADAS */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatCircles {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-100vh) rotate(360deg); }
+}
+
+#msjError {
+  color: #e74c3c;
+  font-weight: 600;
+  text-align: center;
+  min-height: 20px;
+}
