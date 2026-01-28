@@ -1,0 +1,45 @@
+<ion-content [fullscreen]="true">
+  <div id="segundo-login" class="ion-text-center">
+    <form class="login-form" *ngIf="this.mensajeAMostrar" id="form-mostrar-mensajes">
+      <ion-card-header id="mensaje-mostrado" [ngClass]="{'mensaje-error': mensajeError == true, 'mensaje-exito': mensajeError == false}" class="headers">{{mensajeAMostrar}}</ion-card-header>
+    </form>
+
+    <form class="login-form">
+      <h2>
+        <img class="logos" --ion-font-family src="../../assets/imgs/icon-only.png">
+        Bienvenido
+      </h2>
+
+      <ion-item>
+        <ion-input type="email" label="Correo electrónico" labelPlacement="floating" fill="none" placeholder="Ingrese su correo..." [(ngModel)]="correo" name="correo" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" label="Contraseña" labelPlacement="floating" fill="none" placeholder="Ingrese su Contraseña..." [(ngModel)]="password" name="password" required></ion-input>
+      </ion-item>
+
+      
+      <ion-button expand="block" id="iniciar-sesion" (click)="this.IniciarSesion(correo, password)">Iniciar sesión</ion-button>
+    </form>
+    
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="light">
+    <ion-icon name="flash-outline"></ion-icon>
+  </ion-fab-button>
+
+  <ion-fab-list side="top">
+    <ion-fab-button (click)="InicioSesionRapido('admin')">
+      <img src="../../../assets/imgs/admin.png" width="36" height="36">
+    </ion-fab-button>
+
+    <ion-fab-button (click)="InicioSesionRapido('cliente')">
+      <img src="../../../assets/imgs/client.png" width="36" height="36">
+    </ion-fab-button>
+
+    <ion-fab-button (click)="InicioSesionRapido('empleado')">
+      <img src="../../../assets/imgs/employee.png" width="36" height="36">
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+  </div>
+</ion-content>

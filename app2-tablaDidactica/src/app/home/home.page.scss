@@ -1,0 +1,102 @@
+ion-content, ion-item {
+    --background: none;
+}
+
+ion-button { 
+    --background: none; 
+    font-family: 'Bungee', sans-serif;
+    --border-color: rgb(255, 255, 255);
+    // --color: yellow;
+}
+
+.logos {
+    width: 200px;
+    height: 200px;
+    // margin-top: 65%;
+}
+
+.labels {
+    padding: 20px;
+    font-size: 28px;
+}
+
+.splashes {
+    align-items: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#form-mostrar-mensajes {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    #mensaje-mostrado {
+        font-family: 'Sixtyfour', monospace;
+    }
+}
+
+ion-fab-button img {
+  border-radius: 50%;
+}
+
+ion-fab-button {
+  --background: #ffffff;
+  --box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+ion-fab {
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.mensaje-error { color: rgb(240, 111, 111);}
+.mensaje-exito { color: rgb(110, 230, 110);}
+
+#segundo-login{
+    height: 100%;
+    // background-color: rgb(255, 252, 93);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+     align-items: stretch;  
+    //align-items: center;
+    background: linear-gradient(to right, #e46e20, #a5461a);
+    img {
+        height: 32px;
+        width: 32px;
+    }
+    .login-form {
+        background: rgb(54, 51, 44);
+        -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+        padding: 20px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        ion-label, ion-input, h2 {
+            font-family: 'Bungee', sans-serif;
+            color: rgb(255, 255, 255);
+            --background: none;
+            --color: rgb(255, 255, 255);
+        }
+        ion-item {margin-bottom: 1rem;}
+        #iniciar-sesion {
+          --background: linear-gradient(to right, #ffc198, #e5875b); 
+          height: 50px;
+  font-size: 18px;
+        }
+    }
+    .labels {
+        font-weight: 500;
+        margin-bottom: 8rem;
+    }
+}
+
+#form-acceso-rapido { margin-top: 1rem; }
+
+
+
+// .btn-acceso-rapido { padding: 0.5rem; }

@@ -1,0 +1,73 @@
+
+<ion-content>
+  <div id="segundo-login" class="ion-text-center">
+    <ion-card id="content-main-card">
+      <ion-grid id="main-grid">
+        <ion-col class="col-main-grid">
+          <ion-row class="row-main-grid">
+            <img class="item-img" id="item1" src="../../assets/buttons/colores/rojo.png" (click)="itemClickeado(1)">
+            <img class="item-img2" id="item2" src="../../assets/buttons/colores/azul.png" (click)="itemClickeado(2)">
+          </ion-row>   
+        </ion-col>
+        <ion-col class="col-main-grid">
+          <ion-row class="row-main-grid">
+            <img class="item-img" id="item3" src="../../assets/buttons/colores/verde.png" (click)="itemClickeado(3)">
+            <img class="item-img2" id="item4" src="../../assets/buttons/colores/amarillo.png" (click)="itemClickeado(4)">
+          </ion-row>   
+        </ion-col>
+        <ion-col class="col-main-grid">
+          <ion-row class="row-main-grid">
+            <img class="item-img" id="item5" src="../../assets/buttons/colores/blanco.png" (click)="itemClickeado(5)">
+            <img class="item-img2" id="item6" src="../../assets/buttons/colores/negro.png" (click)="itemClickeado(6)">
+          </ion-row>   
+        </ion-col>
+      </ion-grid>
+    </ion-card>
+
+    <ion-card id="content-main-card2" >
+      <ion-grid id="main-grid2">
+
+        <ion-col class="col-main-grid2">
+          <ion-row class="fila">
+            <ion-row class="celda" id="pos1"><img class="item-invertido" id="item1-2" src="../../assets/buttons/colores/rojo.png" (click)="itemClickeado(1)"></ion-row>
+            <ion-row class="celda"><img class="item-invertido" id="item2-2" src="../../assets/buttons/colores/azul.png" (click)="itemClickeado(2)"></ion-row>
+            <ion-row class="celda"><img class="item-invertido" id="item3-2" src="../../assets/buttons/colores/verde.png" (click)="itemClickeado(3)"></ion-row>
+          </ion-row>
+        </ion-col>
+
+        <ion-col class="col-main-grid2">
+          <ion-row class="fila">
+            <ion-row class="celda" id="pos2"><img class="item-invertido" id="item4-2" src="../../assets/buttons/colores/amarillo.png" (click)="itemClickeado(4)"></ion-row>
+            <ion-row class="celda"><img class="item-invertido" id="item5-2" src="../../assets/buttons/colores/blanco.png" (click)="itemClickeado(5)"></ion-row>
+            <ion-row class="celda"><img class="item-invertido" id="item6-2" src="../../assets/buttons/colores/negro.png" (click)="itemClickeado(6)"></ion-row>
+          </ion-row>
+        </ion-col>
+
+      </ion-grid>
+    </ion-card>
+  </div>
+</ion-content>
+      
+<ion-fab class="redireccionador" vertical="top" horizontal="start" slot="fixed" (click)="logOut()">
+  <ion-fab-button color="light">
+    <ion-icon name="arrow-back-circle"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="start" id="theme-selected">
+  <ion-fab-button color="light" id="theme-showed">🔵</ion-fab-button>
+  <ion-fab-list side="end">
+    <ion-fab-button color="light" (click)="actualizarTema('colores')">🔵</ion-fab-button>
+    <ion-fab-button color="light" (click)="actualizarTema('numeros')">🔢</ion-fab-button>
+    <ion-fab-button color="light" (click)="actualizarTema('animales')">🐱</ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="end" id="language-selected">
+  <ion-fab-button color="light" id="language-showed">🇪🇸</ion-fab-button>
+  <ion-fab-list side="start">
+    <ion-fab-button color="light" (click)="actualizarLenguaje('español')">🇪🇸</ion-fab-button>
+    <ion-fab-button color="light" (click)="actualizarLenguaje('ingles')">🇬🇧</ion-fab-button>
+    <ion-fab-button color="light" (click)="actualizarLenguaje('portugues')">🇵🇹</ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
