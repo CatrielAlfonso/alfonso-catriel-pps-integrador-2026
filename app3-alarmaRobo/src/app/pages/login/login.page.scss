@@ -1,0 +1,48 @@
+ion-content, ion-item{ --background: none; }
+ion-toolbar { --background: rgb(255, 145, 0); }
+ion-input { 
+    font-family: 'Quicksand', sans-serif; 
+    --highlight-color-valid: rgb(255, 145, 0); 
+}
+ion-button { 
+    --background: none; 
+    --border-color: rgb(255, 145, 0);
+}
+
+.logos {
+    width: 200px;
+    height: 200px;
+}
+
+.labels {
+    padding: 20px;
+    font-size: 28px;
+}
+
+.splashes {
+    align-items: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#primer-login{
+    height: 100%;
+    background-color: rgb(41, 41, 41);
+    #btn-iniciar-sesion{ 
+        --background: rgb(255, 145, 0); 
+        --background-hover: rgb(204, 116, 0);
+        --border-color: black;
+        --color: black;
+        --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+    }
+    img { margin-top: 20%; }
+    .labels {
+        color: #fff;
+        font-family: 'Quicksand', sans-serif;
+    }
+}
+
+#card-acceso-rapido { padding: 0.5rem;}
+.btn-acceso-rapido { height: 64px;}

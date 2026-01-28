@@ -1,0 +1,27 @@
+<ion-content [fullscreen]="true">
+  <ion-card id="card-main" *ngIf="spinnerMostrandose == false">
+    <ion-button id="btn-security" color="dark">
+      <span>
+        <ion-icon name="lock-open" class="candado" id="lock-open" color="light" (click)="this.Comenzar()" *ngIf="!this.celularBloqueado"></ion-icon>
+        <ion-icon name="lock-closed"  class="candado" id="lock-closed" color="light" (click)="this.Desactivar()" *ngIf="this.celularBloqueado"></ion-icon>
+      </span>
+    </ion-button>
+  </ion-card>
+
+  <ion-row *ngIf="spinnerMostrandose == true" class="contenedor-spinner">
+    <ion-col>
+      <ion-spinner name="circular" id="loader-spinner" color="warning"></ion-spinner>
+      <img class="img-spinner" src="../../assets/icon/Totisafe.png">
+    </ion-col>
+  </ion-row>
+
+  <div class="contenedor-clave">
+    <ion-input type="password" id="input-contraseña" placeholder="Ingrese la clave" fill="solid" [(ngModel)]="clave" *ngIf="this.celularBloqueado"></ion-input>
+  </div>
+</ion-content>
+
+<ion-fab class="redireccionador" vertical="top" horizontal="start" slot="fixed" (click)="this.authService.cerrarSesion()">
+  <ion-fab-button color="light">
+    <ion-icon name="arrow-back-circle"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
