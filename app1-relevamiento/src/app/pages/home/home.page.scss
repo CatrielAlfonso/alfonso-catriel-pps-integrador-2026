@@ -1,0 +1,43 @@
+.body {--background: #9ec5ff; --padding: 1rem;}
+
+.card-cosas {
+    padding: 1.5rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 1rem;
+    .header-cosas{
+        font-size: 24px; 
+        color:black
+    }
+    #row-cosas-lindas {margin-bottom: 2rem;}
+    .imagenes {border-radius: 1.5rem;}
+    .botones-cosas {width: 100%;}
+}
+
+.botones {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 1rem;
+    .btn-cosas-propias {
+        --background: rgb(0, 217, 255);
+        width: 100%;
+    }
+    .btn-graficos {
+        --background: rgb(255, 187, 0);
+        width: 100%;
+    }
+    .btn-cerrar-sesion {
+        --background: rgb(163, 28, 28);
+        width: 100%;
+    }
+}

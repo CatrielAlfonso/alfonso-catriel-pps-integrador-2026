@@ -1,0 +1,23 @@
+      
+<ion-content [fullscreen]="false" class="body">
+  <ion-card class="card-cosas">
+    <ion-card-header class="header-cosas">Bienvenido a Totifeels, {{this.authService.ObtenerNombreUsuario()}}!</ion-card-header>
+    <ion-grid id="main-grid">
+        <ion-row id="row-cosas-lindas">
+          <img src="../../../assets/imgs/img-cosaslindas.jpg" class="imagenes"> 
+          <ion-button routerLink="/cosas-lindas" class="botones-cosas">Ver las cosas lindas</ion-button>
+        </ion-row>
+
+        <ion-row id="row-cosas-feas">
+          <img src="../../../assets/imgs/img-cosasfeas.jpg" class="imagenes"> 
+          <ion-button routerLink="/cosas-feas" class="botones-cosas">Ver las cosas feas</ion-button>
+        </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <ion-item-divider class="botones">
+    <ion-button class="btn-cosas-propias" routerLink="/cosas-propias">Ver cosas propias...</ion-button>
+    <ion-button class="btn-graficos" routerLink="/graficos">Ver gráficos...</ion-button>
+    <ion-button class="btn-cerrar-sesion" (click)="this.authService.cerrarSesion()">Cerrar sesión.</ion-button>
+  </ion-item-divider>
+</ion-content>

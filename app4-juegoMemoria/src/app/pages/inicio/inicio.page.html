@@ -1,0 +1,65 @@
+<ion-content [fullscreen]="true">
+  <!-- Pantalla de selección de dificultad -->
+  <div *ngIf="!gameStarted && !gameFinished" class="difficulty-selection">
+    <h2>Selección de dificultad:</h2>
+    <ion-segment [(ngModel)]="difficulty" color="primary">
+      <ion-segment-button value="facil" style="--color: green; --indicator-color: green; --background: rgba(0, 255, 0, 0.2);">
+        Fácil
+      </ion-segment-button>
+      <ion-segment-button value="medio" style="--color: orange; --indicator-color: orange; --background: rgba(255, 165, 0, 0.2);">
+        Medio
+      </ion-segment-button>
+      <ion-segment-button value="dificil" style="--color: red; --indicator-color: red; --background: rgba(255, 0, 0, 0.2);">
+        Difícil
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <!-- Botones para iniciar juego o ver puntajes -->
+  <ion-grid style="height: 90%;" *ngIf="!gameStarted && !gameFinished">
+    <ion-row style="height: 45%;">
+        <ion-button expand="full" style="margin-top: 1rem; width: 100%;" (click)="startGame()">Comenzar el juego!</ion-button>
+    </ion-row>
+    <ion-row style="height: 45%;">
+        <ion-button expand="full" style="--background: #ff9900; margin-top: 1rem;" (click)="this.router.navigateByUrl('puntajes')">Ver la tabla de puntajes.</ion-button>
+    </ion-row>
+    <ion-row>
+      <ion-button style="margin-top: 1.5rem; margin-left: 3rem; height: 3rem; --background: red" (click)="this.authService.cerrarSesion()">
+        <img src="../../../assets/imgs/power-off.png" height="42px" width="42px"> Cerrar sesión.
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Mensaje de juego completado en el centro -->
+  <div *ngIf="gameFinished" class="game-finished-overlay">
+    <div class="game-finished-message">
+      <h2>¡Juego completado!</h2>
+      <p>Completaste el juego en {{ timer }} segundos.</p>
+    </div>
+  </div>
+
+  <!-- Contenedor del juego -->
+  <div *ngIf="gameStarted" class="game-container">
+    <div class="grid" [ngClass]="{'easy': difficulty === 'facil', 'medium': difficulty === 'medio', 'hard': difficulty === 'dificil'}">
+      <div
+        class="card"
+        *ngFor="let card of cards; let i = index"
+        [ngClass]="{'flipped': card.flipped || card.matched}"
+        (click)="flipCard(i)"
+      >
+        <div class="card-inner">
+          <div class="card-front" [ngClass]="{'easy': difficulty === 'facil', 'medium': difficulty === 'medio', 'hard': difficulty === 'dificil'}"></div>
+          <div class="card-back">
+            <img [src]="card.image" alt="image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer con el tiempo -->
+  <ion-footer *ngIf="gameStarted">
+    <ion-toolbar>
+      <ion-title>Tiempo: {{ timer }} segundos</ion-title>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

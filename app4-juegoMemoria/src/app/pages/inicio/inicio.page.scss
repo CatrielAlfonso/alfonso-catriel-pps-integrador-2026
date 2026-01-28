@@ -1,0 +1,144 @@
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 93%; /* Ocupa el 100% de la altura de la ventana */
+    top: 0;
+    padding: 0;
+    overflow: hidden; /* Evita el scroll */
+  }
+  
+  .grid {
+    display: grid;
+    grid-gap: 10px;
+    width: 100%;
+    height: 90%; /* Ocupar toda la altura */
+    max-width: 100%; /* Ocupar todo el ancho */
+    padding: 10px;
+  }
+  
+  /* Estilos para la dificultad fácil (6 cartas, 2 columnas y 3 filas) */
+  .grid.easy {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr); /* Tres filas para fácil */
+  }
+  
+  /* Estilos para la dificultad intermedia (10 cartas, 2 columnas y 5 filas) */
+  .grid.medium {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr); /* Cinco filas para medio */
+  }
+  
+  /* Estilos para la dificultad difícil (16 cartas, 2 columnas y 8 filas) */
+  .grid.hard {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(8, 1fr); /* Ocho filas para difícil */
+  }
+  
+  .card {
+    width: 100%;
+    height: 100%; /* Ajusta la altura de la carta */
+    position: relative;
+    perspective: 1000px;
+  }
+  
+  .card-inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  .card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  .card-front,
+  .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  .card-front.easy {
+    background-color: rgb(100, 255, 152);
+    background-image: url("../../../assets/imgs/animals-bg.png");
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .card-front.medium {
+    background-color: rgb(255, 217, 0);
+    background-image: url("../../../assets/imgs/tools-bg.png");
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .card-front.hard {
+    background-color: rgb(255, 0, 0);
+    background-image: url("../../../assets/imgs/fruits-bg.png");
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card-back img {
+    width: 100%; /* Asegura que la imagen ocupe el 100% del espacio de la carta */
+    height: 100%; /* Asegura que la imagen ocupe el 100% de la altura de la carta */
+    object-fit: contain; /* Mantiene la proporción de la imagen y asegura que se muestre completa */
+  }
+  
+  ion-footer {
+    margin-top: 1rem;
+  }
+  
+  .difficulty-selection {
+    height: 10%; /* Ocupa el 10% de la altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  ion-grid {
+    height: 90%; /* Permite que la cuadrícula ocupe el 90% restante */
+  }
+  
+  ion-button {
+    height: 100%; /* Los botones ocuparán toda la altura del ion-col */
+    font-size: 1.5em; /* Ajusta el tamaño de fuente si lo deseas */
+  }
+
+  .game-finished-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  }
+  
+  .game-finished-message {
+    background: rgb(117, 255, 225);
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  

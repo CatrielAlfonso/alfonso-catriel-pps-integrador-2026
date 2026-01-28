@@ -1,0 +1,7 @@
+{
+  "name": "app9-juegoKinetico",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

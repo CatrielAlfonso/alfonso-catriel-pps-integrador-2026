@@ -1,0 +1,7 @@
+{
+  "name": "app8-visualizadorKinetico",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

@@ -1,0 +1,96 @@
+ion-content, ion-item {
+    --background: none;
+}
+
+ion-button { 
+    --background: none; 
+    --border-color: rgb(0, 0, 0);
+    // --color: yellow;
+}
+
+.logos {
+    width: 200px;
+    height: 200px;
+    // margin-top: 65%;
+}
+
+.labels {
+    padding: 20px;
+    font-size: 28px;
+}
+
+#form-mostrar-mensajes {
+    margin-top: 1rem;
+    padding: 1rem;
+    #mensaje-mostrado { font-family: 'Suse', sans-serif; }
+}
+
+.mensaje-error { color: red;}
+.mensaje-exito { color: rgb(0, 255, 0);}
+
+@keyframes moveBackground {
+    from { background-position: 0 0; }
+    to { background-position: 100% 0; }
+}
+@-webkit-keyframes pulsate-fwd{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.1);transform:scale(1.1)}100%{-webkit-transform:scale(1);transform:scale(1)}}@keyframes pulsate-fwd{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.1);transform:scale(1.1)}100%{-webkit-transform:scale(1);transform:scale(1)}}
+#cuarto-login {
+    top: 0;
+    height: 100%;
+    background-position: center;
+    background-image: url("../../../assets/imgs/bg.jpg");    
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    animation: moveBackground 20s linear infinite;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; // Cambiado de center a flex-start
+    align-items: center;
+    padding-top: 2rem; // Añadido para dar espacio en la parte superior
+    img {
+        height: 32px;
+        width: 32px;
+    }
+    .login-form {
+        background: rgb(161, 154, 154);
+        border-radius: 4px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        -webkit-backdrop-filter: blur(5px);
+        -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+        padding: 20px;
+        height: 95%;
+        width: 300px;
+        h2 {
+            background: linear-gradient(to right, #ffacfb, #ff0000, #c403ff);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+        p {
+            color: black;
+        }
+        ion-label, ion-input, h2 {
+            color: rgb(0, 0, 0);
+            --background: none;
+            --color: rgb(255, 255, 255);
+        }
+        ion-item { margin-bottom: 1rem;}
+        #iniciar-sesion { 
+            --background: rgb(255, 135, 229);
+            --border-radius: 18px;
+            -webkit-animation:pulsate-fwd 2s ease-in-out infinite both;animation:pulsate-fwd 2s ease-in-out infinite both;
+        }
+    }
+    .labels {
+        font-weight: 500;
+        margin-bottom: 8rem;
+    }
+}
+
+#form-acceso-rapido { 
+    margin-bottom: 1rem; 
+    ion-button { --color: rgb(255, 36, 102);
+    }
+}

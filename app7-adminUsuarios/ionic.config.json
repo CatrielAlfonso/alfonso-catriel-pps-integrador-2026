@@ -1,0 +1,7 @@
+{
+  "name": "app7-adminUsuarios",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
