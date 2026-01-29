@@ -28,21 +28,39 @@ ion-button {
 }
 
 #form-mostrar-mensajes {
-    background: rgba(255, 255, 255, 0.43);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 3px solid rgb(0, 0, 0);
-    margin-top: 1rem;
+    margin-top: calc(env(safe-area-inset-top) + 50px); 
+    
+    // Centrado y ancho controlado
+    left: 5%;
+    width: 90%;
     position: absolute;
-    width: 100%;
-    padding: 1rem;
-    #mensaje-mostrado { font-family: 'Bebas Neue', sans-serif; }
+    z-index: 1000; // Por encima de todo
+    
+    // Estética mejorada
+    background: rgba(255, 255, 255, 0.9); // Menos transparente para legibilidad
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid black;
+    padding: 12px;
+    text-align: center;
+
+    #mensaje-mostrado { 
+        font-family: 'Bebas Neue', sans-serif; 
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
 }
 
-.mensaje-error { color: red;}
-.mensaje-exito { color: green;}
+.mensaje-error { 
+    color: #d32f2f; // Un rojo más vibrante
+    font-weight: bold;
+}
+
+.mensaje-exito { 
+    color: #2e7d32; // Un verde más sólido
+    font-weight: bold;
+}
 
 @keyframes moveBackground {
     from {
