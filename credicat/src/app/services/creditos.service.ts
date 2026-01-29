@@ -23,7 +23,7 @@ export class CreditosService {
       .from('creditos')
       .select('*')
       .eq('id', id)
-      .single();
+      .maybeSingle();
 
     if (error) throw error;
     this.userLog = data as Creditos;

@@ -54,54 +54,77 @@ ion-button {
 }
 
 #tercer-login {
-    top: 0;
-    height: 100%;
-    background-position: center;
-    background-image: url("../../../assets/imgs/dbb7f6996ff5da50b4c80116d9334868.jpg");    
-    background-repeat: repeat-x;
+    min-height: 100%;
+    background-image: url("../../../assets/imgs/dbb7f6996ff5da50b4c80116d9334868.jpg");
     background-size: auto 100%;
-    animation: moveBackground 20s linear infinite;
+    background-repeat: repeat-x;
+    animation: moveBackground 30s linear infinite;
+    
     display: flex;
-    flex-direction: column;
-    justify-content: space-between; // Cambiado de center a flex-start
+    justify-content: center;
     align-items: center;
-    padding-top: 2rem; // Añadido para dar espacio en la parte superior
-    img {
-        height: 32px;
-        width: 32px;
+    padding: 20px;
+
+    .main-wrapper {
+        width: 100%;
+        max-width: 400px; // Aumentamos el ancho para que no se corte el texto
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
+
+    .logo-container {
+        margin-bottom: -40px; // Superpone un poco el logo con la tarjeta
+        z-index: 10;
+        .logo-superior {
+            width: 100px;
+            height: 100px;
+            filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.5));
+        }
+    }
+
     .login-form {
-        background: rgba(255, 196, 0, 0.363);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5px);
-        border: 3px solid rgb(0, 0, 0);
-        -webkit-backdrop-filter: blur(5px);
-        -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
-        box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
-        margin-top: 50%;
-        padding: 20px;
-        width: 300px;
+        background: rgba(255, 196, 0, 0.85); // Más opaco para leer mejor
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 50px 20px 20px 20px; // Padding superior extra por el logo
+        width: 100%;
+        border: 2px solid black;
+        box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+
         h2 {
-            background: black;
-            -webkit-text-fill-color: transparent;
-            -webkit-background-clip: text;
-        }
-        ion-label, ion-input, h2 {
-            font-family: "Josefin Sans", sans-serif;
-            font-size: larger;
+            text-align: center;
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: bold;
             color: black;
-            --background: none;
-            --color: black;
+            margin-bottom: 2rem;
         }
-        ion-item {margin-bottom: 1rem;}
-        #iniciar-sesion { --background: orange; }
-    }
-    .labels {
-        font-weight: 500;
-        margin-bottom: 8rem;
+
+        .custom-item {
+            --background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            --padding-start: 10px;
+            
+            ion-input {
+                font-size: 16px; // Tamaño estándar para evitar scroll/cortes
+                --color: black;
+            }
+        }
+
+        #iniciar-sesion {
+            --background: black;
+            --color: #ffc400;
+            font-weight: bold;
+            margin-top: 1rem;
+            height: 50px;
+        }
     }
 }
 
+// Estilo para los iconos dentro del FAB
+ion-fab-button img {
+    width: 35px;
+    height: 35px;
+}
 #form-acceso-rapido { margin-bottom: 1rem; }

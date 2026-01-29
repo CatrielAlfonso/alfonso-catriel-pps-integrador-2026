@@ -32,17 +32,31 @@
           <br *ngIf="mensajeObtenido.usuario !== this.usuarioLogueado">
           <strong>{{ mensajeObtenido.mensaje }}</strong>
           <br>
-          ({{mensajeObtenido.fechaMensajeFormateada}})
+          <small class="fecha-label">
+            {{ mensajeObtenido.fecha | date: 'dd/MM/yyyy HH:mm:ss' : '-0300'}}
+          </small>
         </div>
       </div>
     </ion-content>
 
     <!-- Entrada de mensajes -->
-    <ion-footer class="chat-input">
-      <ion-item>
-        <ion-input [(ngModel)]="mensaje" placeholder="Escribe un mensaje..."></ion-input>
-        <ion-button expand="full" (click)="MandarMensaje()" [disabled]="this.mensaje.length > 21 || this.mensaje.length < 1">Enviar</ion-button>
-      </ion-item>
-    </ion-footer>
+    <ion-footer class="chat-input-footer">
+  <ion-toolbar>
+    <div class="input-wrapper">
+      <ion-input 
+        [(ngModel)]="mensaje" 
+        placeholder="Escribe un mensaje..." 
+        class="input-mensaje">
+      </ion-input>
+      
+      <ion-button 
+        (click)="MandarMensaje()" 
+        [disabled]="mensaje.length < 1 || mensaje.length > 100"
+        class="boton-enviar">
+        <ion-icon name="send-outline"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
   </div>
 </ion-content>

@@ -396,7 +396,9 @@ async registrarIngreso(usuario: string): Promise<void> {
       }
       
       this.userLogueado = false;
+
       localStorage.removeItem("usuarioLogueado");
+      this.router.navigate(['/login']);
       //supabase.auth.signOut();
       //
       await this.sweetAlertService.temporallyShowLoadingAlert('Cerrando sesión', 'Redirigiendo...',1000);

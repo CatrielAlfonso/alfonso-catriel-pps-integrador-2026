@@ -109,3 +109,48 @@ ion-item{width: 100%;}
         height: 200px; 
     }
 }
+
+
+.chat-input-footer {
+  --background: rgba(37, 36, 46, 0.95);
+  padding: 8px;
+
+  .input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 0 5px;
+  }
+
+  .input-mensaje {
+    --background: #fff;
+    --color: #000;
+    --padding-start: 15px;
+    border-radius: 25px;
+    margin: 0;
+    min-height: 45px; // Input más alto
+    flex: 1; // Toma todo el espacio disponible
+  }
+
+  .boton-enviar {
+    --border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    --background: #cc00ff;
+    
+    ion-icon {
+      font-size: 20px;
+    }
+  }
+}
+
+.fecha-label {
+    display: block;
+    font-size: 0.7rem;
+    color: #ffffff;
+    opacity: 0.8;
+    margin-top: 4px;
+    text-align: right;
+}

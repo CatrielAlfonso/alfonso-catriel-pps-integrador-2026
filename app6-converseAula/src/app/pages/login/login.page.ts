@@ -1,7 +1,7 @@
 import { Component, inject, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService, authResponse } from '../../services/auth.service';
-import {IonInput,IonContent, IonItem,IonButton, IonCardHeader, IonHeader } from "@ionic/angular/standalone";
+import {IonInput,IonContent, IonFab,IonItem,IonIcon, IonFabList,IonFabButton,IonButton, IonCardHeader, IonHeader } from "@ionic/angular/standalone";
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgModel } from '@angular/forms';
 //import { NgModule } from '@angular/core';
@@ -11,18 +11,27 @@ import { FormsModule, NgModel } from '@angular/forms';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [ IonContent, IonItem, IonButton, CommonModule, FormsModule]
+  imports: [ IonInput,IonContent, IonFab,IonItem, IonButton, IonIcon, IonFabList,IonFabButton,CommonModule, FormsModule]
 })
 export class LoginPage  {
 
    private router = inject(Router);
   private authService = inject(AuthService);
 
-  correo: string = '';
-  password: string = '';
-  mensajeAMostrar: string = '';
-  mensajeError: boolean = false;
-  sesionIniciada: boolean = false;
+  public correo: string = '';
+  public password: string = '';
+  public mensajeAMostrar: string = '';
+  public mensajeError: boolean = false;
+  public sesionIniciada: boolean = false;
+
+
+  constructor() { 
+    this.correo = '';
+    this.password = '';
+    this.mensajeAMostrar = '';
+    this.mensajeError = false;
+    this.sesionIniciada = false;
+  }
 
   async IniciarSesion() {
     const respuesta: authResponse =

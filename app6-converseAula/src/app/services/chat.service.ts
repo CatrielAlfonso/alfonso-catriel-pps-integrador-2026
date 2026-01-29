@@ -7,8 +7,8 @@ import { supabase } from './../services/supabase-client.service';
 
 export interface IMensaje {
   mensaje: string;
-  fechaMensaje: Date;
-  fechaMensajeFormateada: string;
+  fecha: Date;
+  aula: string;
   usuario: string;
 }
 

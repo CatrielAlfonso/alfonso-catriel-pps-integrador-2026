@@ -34,7 +34,7 @@ export class SplashPage implements OnInit {
   reproducirSonidoSplash() {
     try {
     const sound = new Howl({
-      src: ['assets/sounds/wypy.mp3'],
+      src: ['assets/sounds/cash-register.mp3'],
       volume: 0.8
     });
 

@@ -1,5 +1,10 @@
 <ion-content [fullscreen]="true" class="body">
-  <ion-card class="card-cosas">
+  <div *ngIf="cargandoCierre" class="contenedor-spinner-home">
+    <ion-spinner name="circular" color="light"></ion-spinner>
+    <img class="img-spinner" src="../../../assets/imgs/icono-Totissenger.png">
+  </div>
+
+  <ion-card class="card-cosas" *ngIf="!cargandoCierre">
     <ion-grid id="main-grid">
       <ion-row class="row-main-grid half-screen a">
         <ion-card (click)="this.router.navigateByUrl('chat-a')" class="full-card">
@@ -20,10 +25,11 @@
       </ion-row>
     </ion-grid>
   </ion-card>
-</ion-content>
 
-<ion-fab class="fab-volver" vertical="top" horizontal="center" slot="fixed" (click)="this.authService.cerrarSesion()">
-  <ion-fab-button color="danger">
-    <ion-icon name="exit-outline"></ion-icon>  
-  </ion-fab-button>
-</ion-fab>
+  <ion-fab class="fab-volver" vertical="top" horizontal="center" slot="fixed" 
+           (click)="cerrarSesionPersonalizado()" *ngIf="!cargandoCierre">
+    <ion-fab-button color="danger">
+      <ion-icon name="log-out-outline"></ion-icon>  
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
