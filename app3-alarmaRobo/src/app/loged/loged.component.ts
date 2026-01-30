@@ -8,6 +8,8 @@ import { IonContent, IonCard, IonButton, IonIcon, IonRow, IonCol, IonSpinner, Io
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+
 
 interface ISonidos 
 {
@@ -21,7 +23,7 @@ interface ISonidos
   selector: 'app-loged',
   templateUrl: './loged.component.html',
   styleUrls: ['./loged.component.scss'],
-  imports:[FormsModule, IonicModule, CommonModule]
+  imports:[FormsModule, IonicModule, CommonModule,RouterLink]
 })
 export class LogedComponent  implements OnInit {
 
@@ -147,7 +149,9 @@ export class LogedComponent  implements OnInit {
 
   Desactivar(): void
   {
-    if (this.clave == "cliente" || this.clave == "administrador" || this.clave == "empleado" || this.clave == "prueba")
+    const passCorrecta = localStorage.getItem('passwordUsuario');
+
+    if (this.clave == "111111" || this.clave == "222222" || this.clave == "333333" || this.clave == "prueba")
     {
       this.celularBloqueado = false;
       this.subscription.unsubscribe();

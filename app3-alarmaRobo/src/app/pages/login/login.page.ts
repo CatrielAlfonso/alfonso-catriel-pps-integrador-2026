@@ -69,7 +69,7 @@ export class LoginPage {
         break;
       case "empleado":
         this.correo = "invitado@invitado.com";
-        this.password = "invitado";
+        this.password = "222222";
         break;
     }
   }

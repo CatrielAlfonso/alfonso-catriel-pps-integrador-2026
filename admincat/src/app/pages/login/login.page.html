@@ -1,0 +1,67 @@
+<ion-content class="star-wars-login">
+  <div class="space-background">
+    <div class="stars"></div>
+    <div class="cog cog-1">⚙️</div>
+    <div class="cog cog-2">⚙️</div>
+  </div>
+
+  <div class="login-wrapper">
+    <div class="header-container">
+      <div class="logo-aura">
+        <img src="https://xgmbvbjnuipnpovwzikt.supabase.co/storage/v1/object/public/imagenes/icon-background.png" alt="AdminCat Logo" class="login-logo">
+      </div>
+      <h1 class="app-name">ADMIN<span>CAT</span></h1>
+      <div class="line-divider"></div>
+      <p class="app-tagline">SISTEMA DE GESTIÓN GALÁCTICO</p>
+    </div>
+
+    <div class="login-card">
+      <div class="card-border-top"></div>
+      <form [formGroup]="loginForm" (ngSubmit)="ingresar()">
+        
+        <div class="input-group">
+          <ion-label>Frecuencia de Correo</ion-label>
+          <ion-item lines="none" class="custom-item">
+            <ion-icon name="planet-outline" slot="start"></ion-icon>
+            <ion-input type="email" formControlName="correo" placeholder="usuario@sector7.com"></ion-input>
+          </ion-item>
+        </div>
+
+        <div class="input-group">
+          <ion-label>Código de Acceso</ion-label>
+          <ion-item lines="none" class="custom-item">
+            <ion-icon name="key-outline" slot="start"></ion-icon>
+            <ion-input type="password" formControlName="clave" placeholder="••••••••"></ion-input>
+          </ion-item>
+        </div>
+
+        <ion-button expand="block" type="submit" [disabled]="loginForm.invalid" class="btn-main">
+          INICIAR SECUENCIA
+        </ion-button>
+      </form>
+    </div>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="custom-fab">
+      <ion-fab-button class="main-fab">
+        <ion-icon name="construct-outline"></ion-icon>
+      </ion-fab-button>
+
+      <ion-fab-list side="top">
+        <ion-fab-button (click)="accesoRapido('admin')" class="fab-admin">
+          <ion-icon name="shield-half-outline"></ion-icon>
+          <ion-label>ADMIN</ion-label>
+        </ion-fab-button>
+        
+        <ion-fab-button (click)="accesoRapido('cliente')" class="fab-cliente">
+          <ion-icon name="people-outline"></ion-icon>
+          <ion-label>CLIENTE</ion-label>
+        </ion-fab-button>
+        
+        <ion-fab-button (click)="accesoRapido('empleado')" class="fab-empleado">
+          <ion-icon name="cog-outline"></ion-icon>
+          <ion-label>STAFF</ion-label>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+  </div>
+</ion-content>

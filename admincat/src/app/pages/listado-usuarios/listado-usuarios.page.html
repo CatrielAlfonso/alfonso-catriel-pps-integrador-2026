@@ -1,0 +1,44 @@
+<ion-content class="fritos-theme" scroll-y="true">
+  <div class="list-container">
+    
+    <div class="header-list">
+      <ion-button fill="clear" (click)="volver()" class="btn-volver">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+      <h1 class="fritos-logo">ARCHIVOS RECLUTAS</h1>
+    </div>
+
+    <div *ngIf="cargando" class="loading-box">
+      <ion-spinner name="lines-sharp"></ion-spinner>
+      <p>ACCEDIENDO AL MAINFRAME...</p>
+    </div>
+
+    <div class="reclutas-grid" *ngIf="!cargando">
+      <div class="recluta-card" *ngFor="let user of usuarios">
+        
+        <div class="avatar-frame">
+          <img [src]="user.foto_url || 'assets/no-avatar.png'" alt="avatar">
+          <div class="scan-line"></div>
+          <div class="corner top-left"></div>
+          <div class="corner bottom-right"></div>
+        </div>
+
+        <div class="recluta-info">
+          <h3>{{ user.nombres }} {{ user.apellidos }}</h3>
+          <p class="dni-label">ID: {{ user.dni }}</p>
+          <p class="mail-label">{{ user.correo }}</p>
+          
+          <div class="status-tag">
+            <span class="dot"></span>
+            ACTIVO / {{ user.perfil | uppercase }}
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div *ngIf="!cargando && usuarios.length === 0" class="no-data">
+      <p>NO SE ENCONTRARON RECLUTAS EN ESTE SECTOR.</p>
+    </div>
+  </div>
+</ion-content>

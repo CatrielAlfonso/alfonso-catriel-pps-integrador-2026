@@ -1,0 +1,119 @@
+$violeta-profundo: #120026;
+$violeta-medio: #210042;
+$naranja-pilot: #ff8c00;
+$cyan-neon: #00e5ff;
+.header-registro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  .btn-volver {
+    --color: #00e5ff; // Color cyan neón
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+}
+.fritos-theme {
+  --background: #{$violeta-profundo};
+  font-family: 'Courier New', Courier, monospace;
+
+  .register-container {
+    height: 100vh;
+    overflow: hidden; // 🚫 Prohibido el scroll
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    background: radial-gradient(circle, $violeta-medio 0%, $violeta-profundo 100%);
+  }
+
+  .fritos-logo {
+    color: $naranja-pilot;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 900;
+    text-shadow: 0 0 8px rgba($naranja-pilot, 0.6);
+    margin-bottom: 15px;
+  }
+
+  .alta-seccion {
+    border: 2px solid $cyan-neon;
+    background: rgba(0,0,0,0.5);
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: inset 0 0 15px rgba($cyan-neon, 0.2);
+  }
+
+  /* LABELS GIGANTES */
+  ion-item {
+    --background: transparent;
+    --color: white;
+    --border-color: #{$naranja-pilot};
+    margin-bottom: 2px;
+    
+    ion-label {
+      color: $naranja-pilot !important;
+      font-weight: 900 !important;
+      font-size: 1.1rem !important;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    ion-input { color: #fff; --padding-top: 10px; }
+  }
+
+  .err { color: #ff0044; font-size: 0.7rem; font-weight: bold; margin-left: 15px; }
+
+  /* BOTÓN ESCÁNER QR */
+  .btn-scan {
+    --background: #{$cyan-neon};
+    --color: #000;
+    font-weight: 900;
+    margin-bottom: 15px;
+    height: 50px;
+    clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+  }
+
+  /* BIO-SCANNER BOX */
+  .bio-box {
+    width: 130px;
+    height: 130px;
+    margin: 15px auto;
+    border: 2px solid $cyan-neon;
+    background: rgba($cyan-neon, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    .scan-info {
+      text-align: center;
+      color: $cyan-neon;
+      ion-icon { font-size: 2.5rem; }
+      p { font-size: 0.55rem; font-weight: bold; margin-top: 5px; }
+    }
+
+    .scan-img { width: 100%; height: 100%; object-fit: cover; }
+
+    .laser {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: $cyan-neon;
+      box-shadow: 0 0 10px $cyan-neon;
+      animation: scanline 2s infinite linear;
+    }
+  }
+
+  .btn-submit {
+    --background: #{$naranja-pilot};
+    --color: white;
+    font-weight: 900;
+    height: 55px;
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+  }
+}
+
+@keyframes scanline { 0% { top: 0; } 100% { top: 100%; } }

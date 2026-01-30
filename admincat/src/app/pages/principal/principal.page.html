@@ -1,0 +1,35 @@
+<ion-content class="galactic-principal" scroll-y="false">
+  <div class="space-background">
+    <div class="cog cog-1">⚙️</div>
+    <div class="cog cog-2">⚙️</div>
+  </div>
+
+  <div class="main-wrapper">
+    <div class="welcome-section">
+      <img src="https://xgmbvbjnuipnpovwzikt.supabase.co/storage/v1/object/public/imagenes/icon-background.png" class="mini-logo">
+      <h2>HOLA, <span>{{ authSvc.emailUsuario || 'CONECTANDO...' }}</span></h2>
+      <p class="status-text">TERMINAL DE ACCESO V.2</p>
+    </div>
+
+    <div class="menu-container">
+      <ion-button *ngIf="esAdmin" (click)="irAlta()" class="btn-max alta">
+        <div class="btn-content">
+          <ion-icon name="person-add-outline"></ion-icon>
+          <span>NUEVO RECLUTA</span>
+        </div>
+      </ion-button>
+
+      <ion-button (click)="irListado()" class="btn-max listado">
+        <div class="btn-content">
+          <ion-icon name="list-circle-outline"></ion-icon>
+          <span>REGISTROS CENTRALES</span>
+        </div>
+      </ion-button>
+    </div>
+
+    <ion-button (click)="this.cerrarSesion()" class="btn-logout" fill="clear">
+      <ion-icon name="log-out-outline" slot="start"></ion-icon>
+      CERRAR TERMINAL
+    </ion-button>
+  </div>
+</ion-content>

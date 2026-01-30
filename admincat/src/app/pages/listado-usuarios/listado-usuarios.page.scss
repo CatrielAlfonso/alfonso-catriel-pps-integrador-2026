@@ -1,0 +1,135 @@
+$violeta-fondo: #0a001a;
+$naranja: #ff8c00;
+$cian: #00f2ff;
+
+.fritos-theme {
+  --background: #{$violeta-fondo};
+
+  .list-container {
+    padding: 20px;
+    background: radial-gradient(circle, #1a0033 0%, $violeta-fondo 100%);
+    min-height: 100%;
+  }
+
+  .header-list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid $cian;
+    padding-bottom: 10px;
+
+    .fritos-logo {
+      color: $cian;
+      font-size: 1.4rem;
+      text-shadow: 0 0 10px $cian;
+      margin: 0;
+    }
+  }
+
+  .reclutas-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .recluta-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid $naranja;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 0 15px 15px 0;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0;
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, transparent 50%, rgba($cian, 0.1) 50%);
+    }
+  }
+
+  /* Marco de Foto Galáctico */
+  .avatar-frame {
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba($cian, 0.5);
+    position: relative;
+    padding: 3px;
+    margin-right: 15px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(30%) contrast(1.2);
+    }
+
+    .scan-line {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: $cian;
+      top: 0;
+      box-shadow: 0 0 8px $cian;
+      animation: scan 3s infinite linear;
+      z-index: 2;
+    }
+
+    .corner {
+      position: absolute;
+      width: 8px; height: 8px;
+      border: 2px solid $cian;
+    }
+    .top-left { top: -2px; left: -2px; border-right: 0; border-bottom: 0; }
+    .bottom-right { bottom: -2px; right: -2px; border-left: 0; border-top: 0; }
+  }
+
+  .recluta-info {
+    h3 {
+      color: white;
+      margin: 0;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .dni-label { color: $naranja; font-weight: bold; margin: 2px 0; font-size: 0.8rem; }
+    .mail-label { color: rgba(255, 255, 255, 0.6); font-size: 0.7rem; margin: 0; }
+
+    .status-tag {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 8px;
+      font-size: 0.6rem;
+      color: $cian;
+      background: rgba($cian, 0.1);
+      padding: 2px 8px;
+      border-radius: 10px;
+
+      .dot {
+        width: 6px; height: 6px;
+        background: $cian;
+        border-radius: 50%;
+        margin-right: 5px;
+        box-shadow: 0 0 5px $cian;
+      }
+    }
+  }
+
+  .loading-box {
+    text-align: center;
+    color: $cian;
+    padding: 50px 0;
+    ion-spinner { --color: #{$cian}; }
+  }
+}
+
+@keyframes scan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
