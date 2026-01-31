@@ -1,23 +1,43 @@
-      
-<ion-content [fullscreen]="false" class="body">
-  <ion-card class="card-cosas">
-    <ion-card-header class="header-cosas">Bienvenido a Totifeels, {{this.authService.ObtenerNombreUsuario()}}!</ion-card-header>
-    <ion-grid id="main-grid">
-        <ion-row id="row-cosas-lindas">
-          <img src="../../../assets/imgs/img-cosaslindas.jpg" class="imagenes"> 
-          <ion-button routerLink="/cosas-lindas" class="botones-cosas">Ver las cosas lindas</ion-button>
-        </ion-row>
+<ion-content [fullscreen]="true" class="home-container">
 
-        <ion-row id="row-cosas-feas">
-          <img src="../../../assets/imgs/img-cosasfeas.jpg" class="imagenes"> 
-          <ion-button routerLink="/cosas-feas" class="botones-cosas">Ver las cosas feas</ion-button>
-        </ion-row>
-    </ion-grid>
-  </ion-card>
+  <!-- COSAS LINDAS -->
+  <button class="bloque" routerLink="/cosas-lindas">
+    <img src="assets/cosaslindas.png" alt="Cosas lindas">
+    <div class="overlay">
+      <h1>Cosas lindas<br>del edificio</h1>
+    </div>
+  </button>
 
-  <ion-item-divider class="botones">
-    <ion-button class="btn-cosas-propias" routerLink="/cosas-propias">Ver cosas propias...</ion-button>
-    <ion-button class="btn-graficos" routerLink="/graficos">Ver gráficos...</ion-button>
-    <ion-button class="btn-cerrar-sesion" (click)="this.authService.cerrarSesion()">Cerrar sesión.</ion-button>
-  </ion-item-divider>
+  <!-- COSAS FEAS -->
+  <button class="bloque" routerLink="/cosas-feas">
+    <img src="assets/cosasfeas.png" alt="Cosas feas">
+    <div class="overlay">
+      <h1>Cosas feas<br>del edificio</h1>
+    </div>
+  </button>
+
+  <!-- 🔴 CERRAR SESIÓN -->
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button color="danger" (click)="cerrarSesion()">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- 📊 FAB ACCIONES -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary">
+      <ion-icon name="menu-outline"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="top">
+      <ion-fab-button color="warning" routerLink="/graficos">
+        <ion-icon name="bar-chart-outline"></ion-icon>
+      </ion-fab-button>
+
+      <ion-fab-button color="tertiary" routerLink="/cosas-propias">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
 </ion-content>

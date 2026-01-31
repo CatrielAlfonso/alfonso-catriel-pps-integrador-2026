@@ -23,13 +23,23 @@ export class PuntajesService {
 
     const nombreUsuario = await this.authService.getMailUsuario();
 
-    await supabase.from('puntajes').insert([{
-      nombre_usuario: nombreUsuario,
-      tiempo: puntaje,
-      tiempo_parseado: puntaje + ' segundos',
-      dificultad,
-      fecha: fechaFormateada
-    }]);
+    try
+    {
+      await supabase.from('puntajes').insert([{
+        nombre_usuario: nombreUsuario,
+        tiempo: puntaje,
+        tiempo_parseado: puntaje + ' segundos',
+        dificultad,
+        fecha: fechaFormateada
+      }]);
+    }
+    catch (error)
+    {
+      console.error('Error al guardar puntaje:', error);
+    }finally
+    {
+      console.log('Puntaje guardado con éxito');
+    }
   }
 
   async ObtenerPuntajes(dificultad: string) {

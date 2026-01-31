@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonContent, IonHeader, IonToolbar } from "@ionic/angular/standalone";
 import { AudioService } from '../../services/audio.service';
+import { Howler , Howl} from 'howler';
 
 @Component({
   selector: 'app-screen',
@@ -11,15 +12,23 @@ import { AudioService } from '../../services/audio.service';
 })
 export class ScreenPage implements OnInit {
 
-    constructor(private router: Router, private audio:AudioService) {}
+    constructor(private router: Router) {}
 
   async ngOnInit() {
-    await this.audio.preload();
-    this.audio.playInicio();
+    this.reproducirSonidoSplash();
     setTimeout(() => {
       this.router.navigateByUrl('/login');
     }, 3800);
   }
 
+
+  reproducirSonidoSplash() {
+    const sound = new Howl({
+      src: ['../../../assets/sounds/InicioLosFritos.mp3'],
+      volume: 0.8
+    });
+
+    sound.play();
+  }
 
 }

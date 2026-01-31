@@ -508,4 +508,6 @@ async registrarIngreso(usuario: string): Promise<void> {
     }
 
 
+   
+
 }

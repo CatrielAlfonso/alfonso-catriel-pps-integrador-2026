@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace = "io.ionic.starter"
+    namespace = "io.pps.admincat"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "io.pps.admincat"

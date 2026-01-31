@@ -1,7 +1,7 @@
 import { Component, inject, NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService, authResponse } from '../../services/auth.service';
-import {IonInput,IonContent, IonItem,IonButton, IonCardHeader } from "@ionic/angular/standalone";
+import {IonInput,IonContent, IonIcon,IonItem,IonButton, IonFab,IonFabButton,IonCardHeader } from "@ionic/angular/standalone";
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgModel } from '@angular/forms';
 //import { NgModule } from '@angular/core';
@@ -11,7 +11,7 @@ import { FormsModule, NgModel } from '@angular/forms';
   selector: 'app-ingreso',
   templateUrl: './ingreso.page.html',
   styleUrls: ['./ingreso.page.scss'],
-    imports:[IonContent,IonItem,IonButton,IonInput,IonCardHeader, CommonModule, FormsModule]
+    imports:[IonContent,IonItem,IonFab,IonFabButton,IonInput, IonIcon, CommonModule, FormsModule]
 
 })
 export class IngresoPage  {

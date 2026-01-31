@@ -1,13 +1,52 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>cosas-propias</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cosas-propias</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="cosas-propias">
+    <ion-card class="card-fotos" *ngIf="!spinnerMostrandose">
+      <ion-list class="lista-fotos">
+        <h1>Fotos lindas subidas: </h1>
+        <ion-item class="item-foto" *ngIf="this.fotosLindasSubidas.length == 0">
+          <h3>Ninguna foto linda subida aún...</h3> 
+        </ion-item>
+
+        <ion-item class="item-foto" *ngFor="let cosaLinda of this.fotosLindasSubidas; let i = index"> 
+          <div class="foto">
+            <img class="imagen" src={{cosaLinda.foto}}>
+            
+            <ion-row class="descripcion">
+              <p class="info-likes">Interacciones: {{cosaLinda.interacciones}}</p>
+              <p class="info-fecha">Fecha de subida: {{cosaLinda.fecha}}</p>          
+            </ion-row>  
+          </div>
+        </ion-item>
+        
+        <h1>Fotos feas subidas: </h1>
+        <ion-item class="item-foto" *ngIf="this.fotosFeasSubidas.length == 0">
+          <h3>Ninguna foto fea subida aún...</h3> 
+        </ion-item>
+
+        <ion-item class="item-foto" *ngFor="let cosaFea of this.fotosFeasSubidas; let i = index"> 
+          <div class="foto">
+            <img class="imagen" src={{cosaFea.foto}}>
+
+            <ion-row class="descripcion">
+              <p class="info-likes">Interacciones: {{cosaFea.interacciones}}</p>
+              <p class="info-fecha">Fecha de subida: {{cosaFea.fecha}}</p>          
+            </ion-row>  
+          </div>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </div>
+  
+  <ion-row *ngIf="spinnerMostrandose" class="contenedor-spinner">
+    <ion-col>
+      <ion-spinner name="circular" class="spinner" color="light"></ion-spinner>
+      <img class="img-spinner" src="../../../assets/imgs/icon-only.png">
+    </ion-col>
+  </ion-row>
 </ion-content>
+
+<ion-fab class="fab-volver" vertical="top" horizontal="start" slot="fixed" routerLink="/home" *ngIf="!spinnerMostrandose">
+  <ion-fab-button color="light">
+    <ion-icon name="arrow-back-circle"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

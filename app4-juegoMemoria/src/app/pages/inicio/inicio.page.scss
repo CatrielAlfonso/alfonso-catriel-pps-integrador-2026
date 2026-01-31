@@ -8,6 +8,17 @@
     overflow: hidden; /* Evita el scroll */
   }
   
+  .h2
+  {
+    // poner a la izquierda el texto
+    //  
+      
+    text-align: left;
+    margin-top: 1rem;
+
+
+  }
+ 
   .grid {
     display: grid;
     grid-gap: 10px;
@@ -142,3 +153,21 @@
     text-align: center;
   }
   
+  .segment-difficulty {
+  margin-top: 1.5rem;
+}
+
+ion-segment-button[value="facil"].segment-button-checked {
+  --indicator-color: green;
+  --color-checked: green;
+}
+
+ion-segment-button[value="medio"].segment-button-checked {
+  --indicator-color: orange;
+  --color-checked: orange;
+}
+
+ion-segment-button[value="dificil"].segment-button-checked {
+  --indicator-color: red;
+  --color-checked: red;
+}

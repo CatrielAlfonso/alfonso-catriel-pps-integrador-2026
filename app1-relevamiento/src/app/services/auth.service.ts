@@ -34,16 +34,9 @@ export class AuthService {
    constructor() {
     supabase.auth.onAuthStateChange((_event, session) => {
     this.userLogueado = !!session;
-    console.log('🔄 Cambio de sesión:', session);
+    this.emailUsuario = session?.user?.email || '';
+    console.log('🔄 Cambio de sesión detectado:', this.emailUsuario);
 
-    // ver si es administrador
-    // this.esAdmin().then(isAdmin => {
-    //   this.usuarioAdministrador = isAdmin;
-    //   console.log('Usuario es administrador:', this.usuarioAdministrador);
-    // });
-    // if (!session) {
-    //   this.router.navigate(['/login']);
-    // }
   });
   }
 
@@ -420,7 +413,8 @@ async registrarIngreso(usuario: string): Promise<void> {
 
 
   //obtener nombre usuario actual en string
-  async getMailUsuario(): Promise<string> {
+  async getMailUsuario() 
+  {
     
 
     const { data, error } = await supabase.auth.getUser();

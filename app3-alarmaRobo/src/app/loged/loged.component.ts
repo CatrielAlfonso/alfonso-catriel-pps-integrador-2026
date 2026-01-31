@@ -8,8 +8,7 @@ import { IonContent, IonCard, IonButton, IonIcon, IonRow, IonCol, IonSpinner, Io
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-
+import { RouterLink , Router} from '@angular/router';
 
 interface ISonidos 
 {
@@ -32,6 +31,7 @@ export class LogedComponent  implements OnInit {
   vibration = inject(Vibration);
   screenOrientation = inject(ScreenOrientation);
   deviceMotion = inject(DeviceMotion);
+  router = inject(Router);
   
   celularBloqueado: boolean;
   spinnerMostrandose: boolean;
@@ -73,6 +73,11 @@ export class LogedComponent  implements OnInit {
     setTimeout( ()=> { this.spinnerMostrandose = false}, 2000);
   }
 
+  cerrarSesion()
+  {
+    this.authService.cerrarSesion();
+    this.router.navigateByUrl('/login');
+  }
 
   Comenzar(): void
   {
@@ -141,9 +146,10 @@ export class LogedComponent  implements OnInit {
     if(this.posicionActualCelular != this.posicionAnteriorCelular)
     {
       this.posicionAnteriorCelular = "horizontal";
+      this.vibration.vibrate(5000);
       this.audio.src = this.sonidos.audioCelularHorizontal;
       this.audio.play();
-      this.vibration.vibrate(5000);
+      //this.vibration.vibrate(5000);
     }
   }
 

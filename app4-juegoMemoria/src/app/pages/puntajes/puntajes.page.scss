@@ -1,0 +1,113 @@
+/* Contenedor general */
+.contenedor-mensajes {
+   
+    text-align: center;
+    margin: 50px 0;
+  }
+  
+  .fuente-titulo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1f1f1f;
+  }
+  
+  .mensajes {
+    font-size: 1rem;
+    color: #3b3b3b;
+    margin-top: 10px;
+  }
+  
+  /* Estilos generales de la tabla */
+  .contenedor-tabla {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .row-headers {
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    padding: 15px 0;
+  }
+  
+  .row-puntajes {
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .row-puntajes:last-child {
+    border-bottom: none;
+  }
+  
+  .row-headers ion-col,
+  .row-puntajes ion-col {
+    padding: 10px;
+  }
+  
+  /* Estilos dinámicos según la dificultad */
+  
+  /* Fácil (Verde) */
+  .tabla-facil-header {
+    background-color: #2e7d32;
+    color: white;
+  }
+  
+  .tabla-facil-body {
+    background-color: #a5d6a7;
+    color: #333;
+  }
+  
+  /* Medio (Amarillo) */
+  .tabla-medio-header {
+    background-color: #f9a825;
+    color: white;
+  }
+  
+  .tabla-medio-body {
+    background-color: #fff59d;
+    color: #333;
+  }
+  
+  /* Difícil (Rojo) */
+  .tabla-dificil-header {
+    background-color: #c62828;
+    color: white;
+  }
+  
+  .tabla-dificil-body {
+    background-color: #ef9a9a;
+    color: #333;
+  }
+  
+  /* Estilos para los botones */
+  ion-button {
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  
+  .contenedor-spinner
+{
+    width: 90%;
+    height: 100%;
+    ion-spinner {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+    }
+    .img-spinner { 
+        position: absolute;
+        top: 50%;  /* position the top  edge of the element at the middle of the parent */
+        left: 50%; /* position the left edge of the element at the middle of the parent */
+        transform: translate(-50%, -50%);
+        width: 200px; 
+        height: 200px; 
+    }
+}

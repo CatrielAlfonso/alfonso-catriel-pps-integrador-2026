@@ -20,7 +20,7 @@
   </div>
 </ion-content>
 
-<ion-fab class="redireccionador" vertical="top" horizontal="start" slot="fixed" (click)="this.authService.cerrarSesion()">
+<ion-fab class="redireccionador" vertical="top" horizontal="start" slot="fixed" (click)="cerrarSesion()" routerLink="/login">
   <ion-fab-button color="light">
     <ion-icon name="arrow-back-circle"></ion-icon>
   </ion-fab-button>

@@ -4,23 +4,30 @@ import { AuthService } from 'src/app/services/auth.service';
 import { PuntajesService } from 'src/app/services/puntajes.service';
 import { IonGrid,IonContent, IonToolbar,IonTitle,IonSegmentButton,AlertController,IonRow,IonButton,IonFooter} from "@ionic/angular/standalone";
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgModel } from '@angular/forms';
+//import ionChange
+import { Howl } from 'howler';
+
+interface Card {
+  image: string;
+  flipped: boolean;
+  matched: boolean;
+}
 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
-  imports:[IonContent,CommonModule, IonToolbar,IonTitle,FormsModule, IonSegmentButton,IonGrid,IonRow,IonButton,IonFooter]
+  imports:[CommonModule,IonContent,FormsModule, IonToolbar,IonTitle,FormsModule, IonSegmentButton,IonGrid,IonRow,IonButton,IonFooter]
 
 })
-export class InicioPage {
+export class InicioPage implements OnInit {
 
  puntajeService = inject(PuntajesService);
   router = inject(Router);
   authService = inject(AuthService);
 
-  difficulty: string = 'facil';  // Valor por defecto
-  timer: number = 0;
+difficulty: 'facil' | 'medio' | 'dificil' = 'facil';  timer: number = 0;
   cards: any[] = [];
   flippedCards: number[] = [];
   matchedPairs: number = 0;
@@ -37,14 +44,21 @@ export class InicioPage {
 
   ngOnInit() {}
 
+
   startGame() {
     this.timer = 0;
     this.matchedPairs = 0;
+    this.flippedCards = []; 
     this.cards = this.generateCards();
     this.shuffleCards();
     this.startTimer();
     this.gameStarted = true; // Marca el juego como iniciado
     this.gameFinished = false; // Asegura que el juego no está en estado finalizado
+  }
+
+  onDifficultyChange(event: any) {
+  this.difficulty = event.detail.value;
+  console.log('Dificultad seleccionada:', this.difficulty);
   }
 
   generateCards(): any[] {
@@ -66,6 +80,26 @@ export class InicioPage {
 
   shuffleCards() {
     this.cards.sort(() => 0.5 - Math.random());
+  }
+
+  
+    reproducirSonidoSplash() {
+    try {
+    const sound = new Howl({
+      src: ['assets/sounds/bye-bye-soundbible.mp3'],
+      volume: 0.8
+    });
+
+    sound.play();
+    }catch (e) {
+      console.log('Audio bloqueado por navegador');
+    }
+  }
+
+  cerrarSesion() {
+    this.authService.cerrarSesion();
+    this.reproducirSonidoSplash();
+    this.router.navigateByUrl('/ingreso');
   }
 
   flipCard(index: number) {

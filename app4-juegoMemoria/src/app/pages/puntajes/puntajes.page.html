@@ -1,13 +1,60 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>puntajes</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content style="--background: rgb(255, 191, 138);">
+  <ion-row *ngIf="spinnerMostrandose" class="contenedor-spinner">
+    <ion-col>
+      <ion-spinner name="circular" class="spinner" color="light"></ion-spinner>
+      <img class="img-spinner" src="../../../assets/imgs/icon-only.png">
+    </ion-col>
+  </ion-row>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">puntajes</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid class="contenedor-mensajes" *ngIf="!this.spinnerMostrandose">
+    <ion-row>
+      <ion-col>
+        <ion-text class="fuente-titulo">
+          <h3>Bienvenido a la tabla de puntajes de MemoCato!</h3>
+        </ion-text>
+        <br>
+        <ion-text class="mensajes">
+          Para poder ver la tabla de puntajes, primero debes seleccionar la dificultad del cual deseas ver los puntajes.
+          A continuación se mostrarán los mejores 5 tiempos en dicha dificultad!
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="!this.spinnerMostrandose">
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" (click)="CambiarTablaDePuntajes('facil')" style="--background: rgba(151, 255, 110, 0.781);">Fácil</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full" (click)="CambiarTablaDePuntajes('medio')" style="--background: rgb(255, 252, 48);">Medio</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full" (click)="CambiarTablaDePuntajes('dificil')" style="--background: rgb(255, 48, 48);">Difícil</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="contenedor-tabla" *ngIf="mostrarTabla">
+    <ion-row [ngClass]="getHeaderClass()" class="row-headers">
+      <ion-col><ion-text class="fuente-titulo">Posición</ion-text></ion-col>
+      <ion-col><ion-text class="fuente-titulo">Usuario</ion-text></ion-col>
+      <ion-col><ion-text class="fuente-titulo">Tiempo</ion-text></ion-col>
+      <ion-col><ion-text class="fuente-titulo">Fecha</ion-text></ion-col>
+    </ion-row>
+
+    <ion-row [ngClass]="getBodyClass()" class="row-puntajes" *ngFor="let puntajeObtenido of observablePuntajes | async; let i = index">
+      <ion-col *ngIf="i + 1 <= 5">{{i + 1}}</ion-col>
+      <ion-col *ngIf="i + 1 <= 5">{{puntajeObtenido.nombre_usuario | shortMail}}</ion-col>
+      <ion-col *ngIf="i + 1 <= 5">{{puntajeObtenido.tiempo_parseado }}</ion-col>
+      <ion-col *ngIf="i + 1 <= 5">{{puntajeObtenido.fecha | shortDate}}</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+
+<ion-fab class="fab-volver" vertical="top" horizontal="start" slot="fixed" routerLink="/inicio" *ngIf="!this.spinnerMostrandose">
+  <ion-fab-button color="light" size="small">
+    <ion-icon name="arrow-back-circle"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

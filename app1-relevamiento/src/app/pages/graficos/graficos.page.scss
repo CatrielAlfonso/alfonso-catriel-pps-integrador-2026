@@ -1,0 +1,40 @@
+ion-card {
+  margin: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(138, 85, 7, 0.15);
+}
+
+.card-grafico-cosas-lindas ion-card-title,
+.card-grafico-cosas-feas ion-card-title {
+  padding: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-grafico-cosas-lindas ion-card-title {
+  background-color: #ff9800;
+  color: #212121;
+}
+
+.card-grafico-cosas-feas ion-card-title {
+  background-color: #424242;
+  color: #ff9800;
+}
+
+.contenedor-spinner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ion-spinner {
+    transform: scale(1.5);
+  }
+
+  .img-spinner {
+    position: absolute;
+    width: 160px;
+    opacity: 0.8;
+  }
+}

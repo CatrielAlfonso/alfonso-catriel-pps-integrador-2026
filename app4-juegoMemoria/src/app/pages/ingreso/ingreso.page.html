@@ -1,35 +1,84 @@
 <ion-content [fullscreen]="true">
   <div id="cuarto-login" class="ion-text-center">
+    
+
     <form class="login-form">
-      <h2 id="header">
-        Bienvenido!
-      </h2>
-      <p>Inicie sesión para continuar</p>
 
-      <ion-item>
-        <ion-input type="email" label="Correo electrónico" labelPlacement="floating" fill="none" placeholder="Ingrese su correo..." [(ngModel)]="correo" name="correo" required></ion-input>
+      <h2 class="titulo">¡Bienvenido!</h2>
+      <p class="subtitulo">Iniciá sesión para jugar 🎮</p>
+
+      <ion-item class="input-item">
+        <ion-input
+          type="email"
+          label="Correo electrónico"
+          labelPlacement="floating"
+          placeholder="ejemplo@mail.com"
+          [(ngModel)]="correo"
+          name="correo"
+          required>
+        </ion-input>
       </ion-item>
 
-      <ion-item>
-        <ion-input type="password" label="Contraseña" labelPlacement="floating" fill="none" placeholder="Ingrese su Contraseña..." [(ngModel)]="password" name="password" required></ion-input>
+      <ion-item class="input-item">
+        <ion-input
+          type="password"
+          label="Contraseña"
+          labelPlacement="floating"
+          placeholder="••••••"
+          [(ngModel)]="password"
+          name="password"
+          required>
+        </ion-input>
       </ion-item>
 
-      <ion-button expand="block" id="iniciar-sesion" (click)="this.IniciarSesion()">Iniciar sesión</ion-button>
-      
-      <form *ngIf="this.mensajeAMostrar" id="form-mostrar-mensajes">
-        <ion-card-header id="mensaje-mostrado" [ngClass]="{'mensaje-error': mensajeError == true, 'mensaje-exito': mensajeError == false}" class="headers">{{mensajeAMostrar}}</ion-card-header>
-      </form>
-      <br>
+      <!-- FAB LOGIN -->
+      <!-- <ion-fab vertical="relative" horizontal="center">
+        <ion-fab-button class="fab-login" (click)="IniciarSesion()">
+          <ion-icon name="play"></ion-icon>
+        </ion-fab-button>
+      </ion-fab> -->
+      <ion-fab
+        vertical="bottom"
+        horizontal="center"
+        slot="fixed"
+        class="fab-play"
+      >
+        <ion-fab-button class="fab-login" (click)="IniciarSesion()">
+          <ion-icon name="play"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
 
-      <div id="form-acceso-rapido">
-        <ion-button class="btn-acceso-rapido" fill="outline" (click)="InicioSesionRapido('admin')"> <img src="../../../assets/imgs/admin copy.png" height="42px" width="42">Iniciar sesión como administrador</ion-button>
-        <br>
-        <ion-button class="btn-acceso-rapido" fill="outline" (click)="InicioSesionRapido('usuario')"> <img src="../../../assets/imgs/usuario.png" height="42px" width="42">Iniciar sesión como usuario</ion-button>
-        <br>
-        <ion-button class="btn-acceso-rapido" fill="outline" (click)="InicioSesionRapido('tester')"> <img src="../../../assets/imgs/tester.png" height="42px" width="42">Iniciar sesión como tester</ion-button>
-        <br>
-        <ion-button class="btn-acceso-rapido" fill="outline" (click)="InicioSesionRapido('invitado')"> <img src="../../../assets/imgs/invitado.png" height="42px" width="42">Iniciar sesión como invitado</ion-button>
+      <p class="fab-text">¡Jugar!</p>
+
+      <!-- MENSAJE -->
+      <ion-card *ngIf="mensajeAMostrar" class="card-mensaje"
+        [ngClass]="{'error': mensajeError, 'ok': !mensajeError}">
+        {{ mensajeAMostrar }}
+      </ion-card>
+
+      <!-- ACCESO RÁPIDO -->
+      <div class="acceso-rapido">
+        <p>Acceso rápido</p>
+
+        <div class="fab-rapido">
+          <ion-fab-button color="warning" (click)="InicioSesionRapido('admin')">
+            <img src="../../../assets/imgs/admin copy.png">
+          </ion-fab-button>
+
+          <ion-fab-button color="success" (click)="InicioSesionRapido('usuario')">
+            <img src="../../../assets/imgs/usuario.png">
+          </ion-fab-button>
+
+          <ion-fab-button color="tertiary" (click)="InicioSesionRapido('tester')">
+            <img src="../../../assets/imgs/tester.png">
+          </ion-fab-button>
+
+          <ion-fab-button color="medium" (click)="InicioSesionRapido('invitado')">
+            <img src="../../../assets/imgs/invitado.png">
+          </ion-fab-button>
+        </div>
       </div>
+
     </form>
   </div>
 </ion-content>

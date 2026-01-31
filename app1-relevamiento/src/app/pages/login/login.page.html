@@ -1,5 +1,12 @@
 <ion-content [fullscreen]="false">
   <div id="tercer-login" class="ion-text-center">
+
+    <div class="login-logo">
+      <img src="../../../assets/imgs/icon-only.png" alt="CatoVisuals logo">
+      <h1 class="app-title">CatoVisuals</h1>
+      <p class="app-subtitle">Capturá lo lindo y lo feo</p>
+    </div>
+
     <form class="login-form">
       <h2 id="header">
         Inicio de sesión
@@ -20,10 +27,32 @@
       <ion-card-header id="mensaje-mostrado" [ngClass]="{'mensaje-error': mensajeError == true, 'mensaje-exito': mensajeError == false}" class="headers">{{mensajeAMostrar}}</ion-card-header>
     </form>
 
-    <form class="login-form" id="form-acceso-rapido">
-      <ion-button class="btn-acceso-rapido" fill="outline" (click)="InicioSesionRapido('admin')"> <img src="../../../assets/imgs/admin.png" height="42px" width="42"></ion-button>
-      <ion-button class="btn-acceso-rapido" fill="outline" (click)="InicioSesionRapido('cliente')"> <img src="../../../assets/imgs/client.png" height="42px" width="42"></ion-button>
-      <ion-button class="btn-acceso-rapido" fill="outline" (click)="InicioSesionRapido('empleado')"> <img src="../../../assets/imgs/employee.png" height="42px" width="42"></ion-button>
-    </form>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="dark">
+        <ion-icon name="people-outline"></ion-icon>
+      </ion-fab-button>
+
+      <ion-fab-list side="top">
+        <ion-fab-button color="primary" (click)="loginRapido(1)">
+          <ion-icon name="shield-checkmark-outline"></ion-icon>
+        </ion-fab-button>
+
+        <ion-fab-button color="secondary" (click)="loginRapido(2)">
+          <ion-icon name="person-outline"></ion-icon>
+        </ion-fab-button>
+
+        <ion-fab-button color="tertiary" (click)="loginRapido(3)">
+          <ion-icon name="happy-outline"></ion-icon>
+        </ion-fab-button>
+
+        <ion-fab-button color="warning" (click)="loginRapido(4)">
+          <ion-icon name="help-outline"></ion-icon>
+        </ion-fab-button>
+
+        <ion-fab-button color="success" (click)="loginRapido(5)">
+          <ion-icon name="bug-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
   </div>
 </ion-content>

@@ -1,13 +1,66 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>cosas-feas</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cosas-feas</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="cosas-feas">
+
+    <ion-card class="card-fotos" *ngIf="!spinnerMostrandose">
+      <ion-list>
+        <ion-item *ngFor="let cosaFea of fotos">
+
+          <div class="foto">
+            <h1 class="autor">Foto subida por: {{ cosaFea.autor }}</h1>
+
+            <img class="imagen" [src]="cosaFea.foto" />
+
+            <ion-row class="descripcion">
+
+              <ion-button
+                class="btn-votar"
+                *ngIf="!yaVoto(cosaFea)"
+                (click)="votar(cosaFea)">
+                <ion-icon name="heart-outline"></ion-icon>
+              </ion-button>
+
+              <ion-button
+                class="btn-votar votado"
+                *ngIf="yaVoto(cosaFea)">
+                <ion-icon name="heart"></ion-icon>
+              </ion-button>
+
+              <div class="info">
+                <p class="info-likes">💔 {{ cosaFea.interacciones }} interacciones</p>
+                <p class="info-fecha">📅 {{ cosaFea.fecha }}</p>
+              </div>
+
+            </ion-row>
+          </div>
+
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+  </div>
+
+  <!-- SPINNER -->
+  <ion-row *ngIf="spinnerMostrandose" class="contenedor-spinner">
+    <ion-col>
+      <ion-spinner name="circular"></ion-spinner>
+    </ion-col>
+  </ion-row>
 </ion-content>
+
+<!-- VOLVER -->
+<ion-fab vertical="top" horizontal="start" slot="fixed"
+         routerLink="/home"
+         *ngIf="!spinnerMostrandose">
+  <ion-fab-button>
+    <ion-icon name="arrow-back-circle"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<!-- SUBIR FOTO -->
+<ion-fab vertical="top" horizontal="end" slot="fixed"
+         (click)="subirFoto()"
+         *ngIf="!spinnerMostrandose">
+  <ion-fab-button>
+    <ion-icon name="add-circle-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
